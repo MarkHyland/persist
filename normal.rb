@@ -24,6 +24,7 @@ class TicTacToe
     @current_player = @players.first
   end
 
+  # Added competitors method
   def competitors
     [@player1.name, @player2.name]
   end
