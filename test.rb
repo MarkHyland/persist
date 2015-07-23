@@ -7,7 +7,6 @@ require 'pry'
 class TestWins < Minitest::Test
 
 	def test_win_adds_win
-		# Clears the database
 		Person.destroy_all
 		g = Game.new
 		assert_equal 0, Person.where(name: "bobo").create!.wins

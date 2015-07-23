@@ -15,8 +15,9 @@ class TicTacToe
 
   def initialize
     @players = [Player.new(:x), Player.new(:o)]
-    # Added player 1 and 2
+    # Added line
     @player1 = @players.first
+    # Added line
     @player2 = @players.last
     @board   = Array.new 9
 
@@ -60,28 +61,29 @@ class TicTacToe
     lines.each do |line|
       values = line.map { |position| value_in position }
       if values.all? { |v| v == :x }
-        # changed this line from :x to :name
+        # changed line from :x to @player1.name
         return @player1.name
       elsif values.all? { |v| v == :o }
-        # changed this line from :o
+        # changed line from :o to @player2.name
         return @player2.name
       end
     end
-    return nil # no winner yet
+    return nil 
   end
 
   def loser
     lines.each do |line|
       values = line.map { |position| value_in position }
       if values.all? { |v| v == :x }
-        # changed this line from :x to :name
+        # changed line from :x to @player1.name
         return @player2.name
       elsif values.all? { |v| v == :o }
-        # changed this line from :o
+        # changed line from :o to @player2.name
         return @player1.name
       end
     end
-    return [@player1.name, @player2.name] # no winner yet
+    # changed line from nil to [@player1.name, @player2.name] 
+    return [@player1.name, @player2.name] 
   end
 
   def display_board
